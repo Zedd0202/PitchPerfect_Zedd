@@ -24,6 +24,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nmX-4z-nB6">
                                 <rect key="frame" x="110" y="256" width="155" height="155"/>
                                 <state key="normal" image="Record"/>
+                                <connections>
+                                    <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ktg-iZ-jA7"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tab to Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55J-Ub-wa8">
                                 <rect key="frame" x="133.5" y="426" width="107" height="20.5"/>
@@ -32,7 +35,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvl-iR-Daq">
-                                <rect key="frame" x="110" y="467.5" width="155" height="155"/>
+                                <rect key="frame" x="162.5" y="467.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="647-3v-5KM"/>
+                                    <constraint firstAttribute="width" constant="50" id="oTZ-cw-ljI"/>
+                                </constraints>
                                 <state key="normal" image="Stop"/>
                                 <connections>
                                     <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6K5-ZI-OCU"/>
@@ -44,13 +51,14 @@
                             <constraint firstItem="nmX-4z-nB6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4KD-7d-cPH"/>
                             <constraint firstItem="nmX-4z-nB6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LE6-mp-WN2"/>
                             <constraint firstItem="xvl-iR-Daq" firstAttribute="centerX" secondItem="55J-Ub-wa8" secondAttribute="centerX" id="apf-Bv-6NW"/>
+                            <constraint firstItem="xvl-iR-Daq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cS0-jK-vec"/>
                             <constraint firstItem="55J-Ub-wa8" firstAttribute="top" secondItem="nmX-4z-nB6" secondAttribute="bottom" constant="15" id="iFD-h8-fKP"/>
                             <constraint firstItem="xvl-iR-Daq" firstAttribute="top" secondItem="55J-Ub-wa8" secondAttribute="bottom" constant="21" id="j1I-bx-rhR"/>
                             <constraint firstItem="55J-Ub-wa8" firstAttribute="centerX" secondItem="nmX-4z-nB6" secondAttribute="centerX" id="zwE-ev-ycY"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="recordButton" destination="nmX-4z-nB6" id="vih-XK-Bnq"/>
+                        <outlet property="recordButton" destination="nmX-4z-nB6" id="Be0-pt-EZZ"/>
                         <outlet property="recordingLabel" destination="55J-Ub-wa8" id="9UK-H4-wfy"/>
                         <outlet property="stopRecordingButton" destination="xvl-iR-Daq" id="lBj-XF-rkT"/>
                     </connections>
