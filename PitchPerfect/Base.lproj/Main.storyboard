@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Record Sounds View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RecordSoundsViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -60,7 +60,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Ke8-FW-i3F"/>
                     <connections>
-                        <outlet property="recordButton" destination="nmX-4z-nB6" id="Be0-pt-EZZ"/>
+                        <outlet property="recordButton" destination="nmX-4z-nB6" id="ecB-tB-HVf"/>
                         <outlet property="recordingLabel" destination="55J-Ub-wa8" id="9UK-H4-wfy"/>
                         <outlet property="stopRecordingButton" destination="xvl-iR-Daq" id="lBj-XF-rkT"/>
                     </connections>
