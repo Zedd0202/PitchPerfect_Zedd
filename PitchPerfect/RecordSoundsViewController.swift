@@ -57,13 +57,20 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        if(flag){
-        performSegue(withIdentifier: "stop Recording", sender: audioRecorder.url)
-        }
-        else{
+        if flag{
+        performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
+        } else{
             print("recording was not succesful")
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "stopRecording"{
+            let PlaySoundVC = segue.destination as! PlaySoundsViewController
+            let recordedAudioURL = sender as! URL
+            PlaySoundVC.recordedAudioURL = recordedAudioURL
+        }
     }
 }
 
