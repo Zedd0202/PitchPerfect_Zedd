@@ -62,6 +62,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         } else{
             print("recording was not succesful")
         }
+    
         
     }
     
