@@ -12,6 +12,7 @@
 		142675BF1E2344C200B938D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 142675BD1E2344C200B938D6 /* Main.storyboard */; };
 		142675C11E2344C200B938D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 142675C01E2344C200B938D6 /* Assets.xcassets */; };
 		142675C41E2344C200B938D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 142675C21E2344C200B938D6 /* LaunchScreen.storyboard */; };
+		146D923C1E236B200047A6C7 /* PlaySoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146D923B1E236B200047A6C7 /* PlaySoundsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		142675C01E2344C200B938D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		142675C31E2344C200B938D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		142675C51E2344C200B938D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		146D923B1E236B200047A6C7 /* PlaySoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				142675C01E2344C200B938D6 /* Assets.xcassets */,
 				142675C21E2344C200B938D6 /* LaunchScreen.storyboard */,
 				142675C51E2344C200B938D6 /* Info.plist */,
+				146D923B1E236B200047A6C7 /* PlaySoundsViewController.swift */,
 			);
 			path = PitchPerfect;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				142675BC1E2344C200B938D6 /* RecordSoundsViewController.swift in Sources */,
+				146D923C1E236B200047A6C7 /* PlaySoundsViewController.swift in Sources */,
 				142675BA1E2344C200B938D6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +305,7 @@
 				142675CA1E2344C200B938D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
