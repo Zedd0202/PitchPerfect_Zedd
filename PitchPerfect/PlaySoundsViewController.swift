@@ -11,6 +11,11 @@ import AVFoundation
 
 class PlaySoundsViewController: UIViewController {
 
+    var currentTime: TimeInterval = 0.0
+    
+    
+    
+    @IBOutlet weak var recordingTime: UILabel!
     @IBOutlet weak var snailButton: UIButton!
     @IBOutlet weak var chipmunkButton: UIButton!
     @IBOutlet weak var rabbitButton: UIButton!
@@ -25,6 +30,8 @@ class PlaySoundsViewController: UIViewController {
     var audioEngine:AVAudioEngine!
     var audioPlayerNode: AVAudioPlayerNode!
     var stopTimer: Timer!
+    
+    var timer : AVAudioPlayer!
     
     enum ButtonType: Int {
         case slow = 0, fast, chipmunk, vader, echo, reverb
@@ -46,9 +53,12 @@ class PlaySoundsViewController: UIViewController {
         case .reverb:
             playSound(reverb: true)
         }
-        
+       
         configureUI(.playing)
-            }
+       
+
+    }
+    
     
     @IBAction func stopButtonPressed(_ sender: AnyObject) {
         stopAudio()
@@ -58,6 +68,7 @@ class PlaySoundsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAudio()
+        
         // Do any additional setup after loading the view.
     }
 

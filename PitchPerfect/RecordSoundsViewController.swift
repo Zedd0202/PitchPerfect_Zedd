@@ -9,9 +9,12 @@
 import UIKit
 import AVFoundation
 
+
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     var audioRecorder : AVAudioRecorder!
+    var currentTime: TimeInterval = 0.0
+
     
     @IBOutlet weak var recordingLabel: UILabel!
 
@@ -23,18 +26,27 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         super.viewDidLoad()
         self.navigationItem.title = "Record"
         stopRecordingButton.isHidden = true
+        recordingLabel.isHidden = true
 
         
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        recordingLabel.isHidden = true
+        stopRecordingButton.isHidden = true
+    }
     
     
    
     @IBAction func recordAudio(_ sender: Any) {
+        recordingLabel.isHidden = false
         recordingLabel.text = "Recording in Progress"
         stopRecordingButton.isHidden = false
         stopRecordingButton.isEnabled = true
         recordButton.isEnabled = false
+        
+        
+        
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
         let recordingName = "recordedVoice.wav"
         let pathArray = [dirPath, recordingName]
@@ -49,6 +61,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder.isMeteringEnabled = true
         audioRecorder.prepareToRecord()
         audioRecorder.record()
+        
     }
 
     @IBAction func stopRecording(_ sender: Any) {
@@ -75,6 +88,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             let PlaySoundVC = segue.destination as! PlaySoundsViewController
             let recordedAudioURL = sender as! URL
             PlaySoundVC.recordedAudioURL = recordedAudioURL
+            
         }
     }
 }
