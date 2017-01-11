@@ -8,7 +8,7 @@
 
 import UIKit
 import AVFoundation
-
+import Foundation
 class PlaySoundsViewController: UIViewController {
 
     var currentTime: TimeInterval = 0.0
@@ -55,7 +55,19 @@ class PlaySoundsViewController: UIViewController {
         }
        
         configureUI(.playing)
-       
+        do {
+        timer = try AVAudioPlayer(contentsOf: recordedAudioURL as URL)
+        }
+        catch
+        {
+            showAlert(Alerts.AudioFileError, message: String(describing: error))
+        }
+        let time = Int(timer.duration)
+        let min = time / 60
+        let sec = time % 60
+        recordingTime.text = String(format: "녹음시간 : %0.2d 분 : %0.2d 초",min,sec)
+        
+        
 
     }
     

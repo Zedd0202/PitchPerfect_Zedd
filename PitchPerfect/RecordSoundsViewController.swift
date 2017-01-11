@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Foundation//소수점 반올림을 위한 import
 
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
