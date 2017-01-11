@@ -22,6 +22,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Record"
+        stopRecordingButton.isHidden = true
 
         
     }
@@ -31,6 +32,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
    
     @IBAction func recordAudio(_ sender: Any) {
         recordingLabel.text = "Recording in Progress"
+        stopRecordingButton.isHidden = false
         stopRecordingButton.isEnabled = true
         recordButton.isEnabled = false
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
