@@ -58,14 +58,14 @@ class PlaySoundsViewController: UIViewController {
         do {
         timer = try AVAudioPlayer(contentsOf: recordedAudioURL as URL)
         }
-        catch
-        {
+        catch{
             showAlert(Alerts.AudioFileError, message: String(describing: error))
         }
         let time = Int(timer.duration)
         let min = time / 60
         let sec = time % 60
         recordingTime.text = String(format: "녹음시간 : %0.2d 분 : %0.2d 초",min,sec)
+       
         
         
 
@@ -102,5 +102,10 @@ class PlaySoundsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func controlRate(_ sender: Any) {
+    }
 
+    @IBAction func controlPitch(_ sender: Any) {
+    }
 }
