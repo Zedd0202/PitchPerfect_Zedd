@@ -11,10 +11,9 @@ import AVFoundation
 import Foundation
 class PlaySoundsViewController: UIViewController {
 
-    var currentTime: TimeInterval = 0.0
     
     
-    
+   
     @IBOutlet weak var recordingTime: UILabel!
     @IBOutlet weak var snailButton: UIButton!
     @IBOutlet weak var chipmunkButton: UIButton!
@@ -24,7 +23,7 @@ class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var reverbButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     
-    
+    var audioRatePitch: AVAudioUnitTimePitch!
     var recordedAudioURL:URL!
     var audioFile:AVAudioFile!
     var audioEngine:AVAudioEngine!
@@ -32,6 +31,7 @@ class PlaySoundsViewController: UIViewController {
     var stopTimer: Timer!
     
     var timer : AVAudioPlayer!
+    var audioPlayer : AVAudioPlayer!
     
     enum ButtonType: Int {
         case slow = 0, fast, chipmunk, vader, echo, reverb
@@ -74,14 +74,15 @@ class PlaySoundsViewController: UIViewController {
     
     @IBAction func stopButtonPressed(_ sender: AnyObject) {
         stopAudio()
+
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAudio()
-        
-        // Do any additional setup after loading the view.
+      
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,6 +93,7 @@ class PlaySoundsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureUI(.notPlaying)
+        
     }
     /*
     // MARK: - Navigation
@@ -103,9 +105,4 @@ class PlaySoundsViewController: UIViewController {
     }
     */
     
-    @IBAction func controlRate(_ sender: Any) {
-    }
-
-    @IBAction func controlPitch(_ sender: Any) {
-    }
-}
+   }
