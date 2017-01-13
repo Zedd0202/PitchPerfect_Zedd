@@ -65,41 +65,49 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         //녹음된파일의 이름을 지정해준다.
         let recordingName = "recordedVoice.wav"
         
-        //
+        //경로를 배열로 편하게 전달 한다.
         let pathArray = [dirPath, recordingName]
         let filePath = URL(string: pathArray.joined(separator: "/"))
-        
+        print(filePath!)//파일 경로
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSessionCategoryPlayAndRecord, with:AVAudioSessionCategoryOptions.defaultToSpeaker)
         
         try! audioRecorder = AVAudioRecorder(url: filePath!, settings: [:])
-        
         audioRecorder.delegate =  self
         audioRecorder.isMeteringEnabled = true
-        audioRecorder.prepareToRecord()
-        audioRecorder.record()
+        audioRecorder.prepareToRecord()//녹음한 준비를 한다.
+        audioRecorder.record()//녹음 시작
         
     }
-
+    //stopRecordingButton에 대한 액션
     @IBAction func stopRecording(_ sender: Any) {
+        //녹음을 시작하지도 않았는데 활성화가 되어있으면 안되므로 처음에는 사용못하게 설정한다.
         stopRecordingButton.isEnabled = false
+        
+        //반면에 레코딩 버튼은 사용할 수 있어야한다.
         recordButton.isEnabled = true
+        
+        //stopButton을 누르면 다시 레코딩을위해 녹음을 하려면 탭을 하라는 메세지를 출력
         recordingLabel.text = "Tab to Record"
+        
+        //stopButton을 눌렀으므로 녹음을 중지한다.
         audioRecorder.stop()
         let audioSession = AVAudioSession.sharedInstance()
         try! audioSession.setActive(false)
     }
-    
+    //녹음이 끝나고 수행될 함수
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag{
+            //플래그값을 이용해 녹음이 잘 되었으면 performSegue함수를 이용해 다음 뷰로 넘어간다.
         performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
         } else{
+            //false값이 들어오면 녹음이 성공적으로 되지 않았다는 메세지를 출력한다.
             print("recording was not succesful")
         }
     
         
     }
-    
+    //만약 identifier가 stopRecording로 들어오면 url을 전달해주기위한 작업을 한다. 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "stopRecording"{
             let PlaySoundVC = segue.destination as! PlaySoundsViewController
