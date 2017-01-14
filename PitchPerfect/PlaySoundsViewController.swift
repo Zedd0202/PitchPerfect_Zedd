@@ -27,14 +27,18 @@ class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var reverbButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     
-    
+    var buffer: AVAudioPCMBuffer!
+
     var recordedAudioURL:URL!
     var audioFile:AVAudioFile!
     var audioEngine:AVAudioEngine!
     var audioPlayerNode: AVAudioPlayerNode!
     var stopTimer: Timer!
     var timer : AVAudioPlayer!//duration을 나타내기위해 필요한 변수
+    
     var audioPlayer : AVAudioPlayer!
+    
+    
     var time : TimeInterval = 0.0
     enum ButtonType: Int {
         case slow = 0, fast, chipmunk, vader, echo, reverb
@@ -59,12 +63,17 @@ class PlaySoundsViewController: UIViewController {
         }
        //소리를 낸다.
         configureUI(.playing)
+
         do {
         timer = try AVAudioPlayer(contentsOf: recordedAudioURL as URL)
+            //timer.play()
+
         }
         catch{
             showAlert(Alerts.AudioFileError, message: String(describing: error))
         }
+        
+        
         //duration을 나타내기 위한 설정이다.
         let time = Int(timer.duration)
         let min = time / 60
@@ -82,7 +91,7 @@ class PlaySoundsViewController: UIViewController {
 
     }
     
-    
+    //뷰가 로드될 시 audio를 로드해준다.
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAudio()
@@ -95,7 +104,7 @@ class PlaySoundsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-  
+    //뷰가 다 나오고 나면 재생은 되지 않는 상태로 한다. 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureUI(.notPlaying)
@@ -112,7 +121,10 @@ class PlaySoundsViewController: UIViewController {
     }
     */
     @IBAction func adjustVolume(_ sender: UISlider ){
-       audioPlayer.volume = Float(sender.value)
+        
+        audioPlayerNode?.volume = sender.value / 100
+
+        
     }
 }
 
