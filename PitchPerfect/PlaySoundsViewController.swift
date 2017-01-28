@@ -96,6 +96,8 @@ class PlaySoundsViewController: UIViewController {
         super.viewDidLoad()
         setupAudio()
       
+        volumeControl.value = UserDefaults.standard.float(forKey: "soundSlider")
+
 
     }
 
@@ -122,7 +124,8 @@ class PlaySoundsViewController: UIViewController {
     */
     @IBAction func adjustVolume(_ sender: UISlider ){
         
-        audioPlayerNode?.volume = sender.value / 100
+        audioPlayerNode?.volume = sender.value
+        UserDefaults.standard.set(volumeControl.value, forKey: "soundSlider")
 
         
     }

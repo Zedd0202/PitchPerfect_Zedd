@@ -172,7 +172,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Y9T-jp-3zl">
+                                    <slider opaque="NO" contentMode="scaleToFill" restorationIdentifier="soundSlider" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Y9T-jp-3zl">
                                         <rect key="frame" x="-2" y="458.5" width="347" height="95.5"/>
                                         <connections>
                                             <action selector="adjustVolume:" destination="xJn-kx-4JD" eventType="valueChanged" id="4qq-yR-80Z"/>
