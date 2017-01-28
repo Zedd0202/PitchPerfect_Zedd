@@ -96,7 +96,7 @@ class PlaySoundsViewController: UIViewController {
         super.viewDidLoad()
         setupAudio()
       
-        volumeControl.value = UserDefaults.standard.float(forKey: "soundSlider")
+        volumeControl.value = UserDefaults.standard.float(forKey: "soundSlider")//저장한 슬라이더 값을 보여준다.
 
 
     }
@@ -125,7 +125,7 @@ class PlaySoundsViewController: UIViewController {
     @IBAction func adjustVolume(_ sender: UISlider ){
         
         audioPlayerNode?.volume = sender.value
-        UserDefaults.standard.set(volumeControl.value, forKey: "soundSlider")
+        UserDefaults.standard.set(volumeControl.value, forKey: "soundSlider")//슬라이더 상태 저장
 
         
     }
