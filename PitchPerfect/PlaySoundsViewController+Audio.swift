@@ -95,7 +95,7 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
             audioEngine.connect(changeRatePitchNode, to: audioEngine.mainMixerNode, format: buffer.format)
         }
         
-        audioPlayerNode.volume = volumeSlider.value / 100
+       // audioPlayerNode.volume = volumeSlider.value / 100
         
         // schedule to play and start the engine!
         audioPlayerNode.stop()
